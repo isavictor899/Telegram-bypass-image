@@ -31,7 +31,7 @@ API_HASH = os.getenv("API_HASH")
 SAVE_DIR = Path("saved_media")
 SAVE_DIR.mkdir(exist_ok=True)
 
-# Session file is stored locally so you only log in once
+
 client = TelegramClient("viewonce_session", API_ID, API_HASH)
 
 
@@ -60,11 +60,10 @@ def get_extension(media) -> str:
 async def on_message(event):
     msg = event.message
 
-    # Only care about messages with view-once media
     if not msg.media or not is_view_once(msg.media):
         return
 
-    # Who sent it?
+  
     sender = await event.get_sender()
     sender_name = getattr(sender, "first_name", "") or getattr(sender, "username", "unknown")
     chat = await event.get_chat()
@@ -74,7 +73,7 @@ async def on_message(event):
     print(f"    From : {sender_name}")
     print(f"    Chat : {chat_title}")
 
-    # 1. Save locally
+ 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     ext = get_extension(msg.media)
     filename = SAVE_DIR / f"{timestamp}_{sender_name}{ext}"
@@ -82,17 +81,17 @@ async def on_message(event):
     saved_path = await client.download_media(msg.media, file=str(filename))
     print(f"    Saved: {saved_path}")
 
-    # 2. Forward to Saved Messages (send as file so it has no TTL)
+    
     caption = (
         f"📸 View-once from **{sender_name}**\n"
         f"💬 Chat: {chat_title}\n"
         f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
     )
     await client.send_file(
-        "me",                   # "me" = your own Saved Messages
+        "me",                  
         saved_path,
         caption=caption,
-        force_document=False,   # send as photo/video, not raw file
+        force_document=False,  
     )
     print(f"    Forwarded to Saved Messages ✓")
 
