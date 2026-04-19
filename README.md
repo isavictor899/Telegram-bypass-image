@@ -53,3 +53,4 @@ Saved files go to `saved_media/` with filenames like:
 - Only works for **your own account** — it only intercepts media sent to you
 - The session file (`viewonce_session.session`) keeps you logged in — keep it private
 - Add `.env` and `*.session` to `.gitignore` before pushing anywhere
+- The script can only intercept view-once media in real time as it arrives. It can't go back and recover ones that were already sent/expired.
