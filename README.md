@@ -14,7 +14,7 @@ Create an app and copy your `API_ID` and `API_HASH`.
 cp .env.example .env
 # Edit .env with your API_ID and API_HASH
 ```
-
+ENsure the file is saved as .env 
 ### 3. Install dependencies
 ```bash
 pip install -r requirements.txt
