@@ -14,7 +14,7 @@ Create an app and copy your `API_ID` and `API_HASH`.
 cp .env.example .env
 # Edit .env with your API_ID and API_HASH
 ```
-ENsure the file is saved as .env 
+Ensure the file is saved as .env with no name or you can use notepad and create it — open Notepad, paste your credentials, then Save As → filename: .env → Save as type: All Files → save it into the same folder as main.py.
 ### 3. Install dependencies
 ```bash
 pip install -r requirements.txt
