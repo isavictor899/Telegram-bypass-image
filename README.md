@@ -1,4 +1,4 @@
-# TELEGRAM VIEWONCE
+# TELEGRAM VIEW-ONCE
 
 Intercepts Telegram view-once photos and videos, saves them locally,
 and forwards them to your **Saved Messages** — automatically.
