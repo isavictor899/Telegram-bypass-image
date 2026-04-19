@@ -19,7 +19,11 @@ cp .env.example .env
 ```bash
 pip install -r requirements.txt
 ```
-
+### 3.1 Install dependencies
+If error: failed-wheel-build-for-install(cryptg) then...
+```bash
+pip install telethon python-dotenv
+```
 ### 4. Run
 ```bash
 python main.py
